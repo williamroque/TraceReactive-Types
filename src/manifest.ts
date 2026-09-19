@@ -31,4 +31,8 @@ export interface InstalledPackageInfo {
     manifest: PackageManifest;
     path: string;
     loaded: boolean;
+    nodes?: any[];
+    previewers?: any[];
+    exporters?: any[];
+    themeSections?: any[];
 }
