@@ -25,3 +25,13 @@ export interface OutputDefinition {
     label?: string;
     outputType: string;
 }
+
+export interface DynamicInputDefinition {
+    baseName: string;
+    acceptsType: string;
+}
+
+export interface DynamicOutputDefinition {
+    baseName: string;
+    outputType: string;
+}
