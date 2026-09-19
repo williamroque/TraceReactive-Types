@@ -1,6 +1,6 @@
 {
     "name": "@tracereactive/types",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Shared type definitions for TraceReactive packages",
     "types": "src/index.ts",
     "main": "dist/index.js",
