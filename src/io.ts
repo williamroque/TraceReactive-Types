@@ -15,4 +15,5 @@ export type CoreIOType =
     | 'core:controlflow'
     | 'core:number'
     | 'core:string'
-    | 'core:array';
+    | 'core:array'
+    | 'core:event';

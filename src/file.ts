@@ -3,7 +3,7 @@ export interface PackageDependency {
     version: string;
 }
 
-export interface FigureFile {
+export interface SpaceFile {
     nodes: any[];
     edges: any[];
     themes: any[];

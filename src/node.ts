@@ -78,3 +78,24 @@ export abstract class RenderNode extends BaseNode {
     readonly category: string = 'Render';
     readonly visible: boolean = false;
 }
+
+export abstract class ExecuteNode extends BaseNode {
+    readonly category: string = 'Execute';
+    
+    getInputs(data?: Record<string, unknown>, connections?: any[]): InputDefinition[] {
+        const baseInputs = super.getInputs(data, connections);
+        return [...baseInputs, { name: 'Event', acceptsType: 'core:event' }];
+    }
+}
+
+export abstract class EventNode extends BaseNode {
+    readonly category: string = 'Event';
+    
+    getOutputs(data?: Record<string, unknown>, connections?: any[]): OutputDefinition[] {
+        const baseOutputs = super.getOutputs(data, connections);
+        return [...baseOutputs, { name: 'Event', outputType: 'core:event' }];
+    }
+    
+    abstract register(nodeId: string, emit: (nodeId: string) => void): void;
+    abstract unregister(nodeId: string): void;
+}

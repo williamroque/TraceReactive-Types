@@ -13,7 +13,7 @@ export type {
 } from './manifest';
 export type {
     PackageDependency,
-    FigureFile,
+    SpaceFile,
     DependencyValidationResult
 } from './file';
 export type { RendererDefinition } from './registry';
