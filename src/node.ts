@@ -1,9 +1,18 @@
 import type { InputDefinition, OutputDefinition, PropertyDefinition, DynamicInputDefinition, DynamicOutputDefinition } from './property';
 
+export type NodeAccentColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone' | 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose';
+export type NodeAccentWeight = '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '950';
+export type NodeAccent = `${NodeAccentColor}-${NodeAccentWeight}`;
+
+export interface NodeCategory {
+    name: string;
+    accent: NodeAccent;
+    packageId?: string;
+}
 export interface NodeDefinition {
     typeId: string;
     displayName: string;
-    category: string;
+    category: NodeCategory;
     visible: boolean;
     packageId?: string;
     inputs: InputDefinition[];
@@ -20,7 +29,7 @@ export interface NodeDefinition {
 export abstract class BaseNode implements NodeDefinition {
     abstract readonly typeId: string;
     abstract readonly displayName: string;
-    abstract readonly category: string;
+    abstract readonly category: NodeCategory;
     abstract readonly visible: boolean;
     readonly packageId?: string;
     abstract readonly inputs: InputDefinition[];
@@ -75,12 +84,12 @@ export abstract class BaseNode implements NodeDefinition {
 }
 
 export abstract class RenderNode extends BaseNode {
-    readonly category: string = 'Render';
+    readonly category: NodeCategory = { name: 'Render', accent: 'purple-400' };
     readonly visible: boolean = false;
 }
 
 export abstract class ExecuteNode extends BaseNode {
-    readonly category: string = 'Execute';
+    readonly category: NodeCategory = { name: 'Execute', accent: 'red-500' };
     
     getInputs(data?: Record<string, unknown>, connections?: any[]): InputDefinition[] {
         const baseInputs = super.getInputs(data, connections);
@@ -89,7 +98,7 @@ export abstract class ExecuteNode extends BaseNode {
 }
 
 export abstract class EventNode extends BaseNode {
-    readonly category: string = 'Event';
+    readonly category: NodeCategory = { name: 'Event', accent: 'teal-400' };
     
     getOutputs(data?: Record<string, unknown>, connections?: any[]): OutputDefinition[] {
         const baseOutputs = super.getOutputs(data, connections);
