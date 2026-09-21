@@ -4,6 +4,7 @@ export interface IOTypeDefinition {
     packageId: string;
     color?: string;
     compatibleWith?: string[];
+    elementType?: string;
 }
 
 export type CoreIOType =
@@ -16,4 +17,8 @@ export type CoreIOType =
     | 'core:number'
     | 'core:string'
     | 'core:array'
+    | 'core:number-array'
+    | 'core:shape-array'
+    | 'core:string-array'
+    | 'core:data-array'
     | 'core:event';
