@@ -21,4 +21,5 @@ export type CoreIOType =
     | 'core:shape-array'
     | 'core:string-array'
     | 'core:data-array'
-    | 'core:event';
+    | 'core:event'
+    | 'core:boolean';
