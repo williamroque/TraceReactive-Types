@@ -12,6 +12,7 @@ export interface NodeCategory {
 export interface NodeDefinition {
     typeId: string;
     displayName: string;
+    nodeInterface?: 'execute' | 'render' | 'event' | 'normal';
     category: NodeCategory;
     visible: boolean;
     packageId?: string;
@@ -30,6 +31,7 @@ export abstract class BaseNode implements NodeDefinition {
     abstract readonly typeId: string;
     abstract readonly displayName: string;
     abstract readonly category: NodeCategory;
+    readonly nodeInterface: 'execute' | 'render' | 'event' | 'normal' = 'normal';
     abstract readonly visible: boolean;
     readonly packageId?: string;
     abstract readonly inputs: InputDefinition[];
@@ -84,12 +86,14 @@ export abstract class BaseNode implements NodeDefinition {
 }
 
 export abstract class RenderNode extends BaseNode {
-    readonly category: NodeCategory = { name: 'Render', accent: 'purple-400' };
+    readonly nodeInterface = 'render';
+    abstract readonly category: NodeCategory;
     readonly visible: boolean = false;
 }
 
 export abstract class ExecuteNode extends BaseNode {
-    readonly category: NodeCategory = { name: 'Execute', accent: 'red-500' };
+    readonly nodeInterface = 'execute';
+    abstract readonly category: NodeCategory;
     
     getInputs(data?: Record<string, unknown>, connections?: any[]): InputDefinition[] {
         const baseInputs = super.getInputs(data, connections);
@@ -98,7 +102,8 @@ export abstract class ExecuteNode extends BaseNode {
 }
 
 export abstract class EventNode extends BaseNode {
-    readonly category: NodeCategory = { name: 'Event', accent: 'teal-400' };
+    readonly nodeInterface = 'event';
+    abstract readonly category: NodeCategory;
     
     getOutputs(data?: Record<string, unknown>, connections?: any[]): OutputDefinition[] {
         const baseOutputs = super.getOutputs(data, connections);

@@ -10,6 +10,7 @@ export interface PropertyDefinition {
     filters?: { name: string; extensions: string[] }[];
     options?: { label: string; value: string | number }[];
     getOptions?: (node: any, state: any, evaluator: any) => { label: string; value: string | number }[];
+    dialogProperties?: string[];
     hidden?: boolean;
     isPrimary?: boolean;
 }

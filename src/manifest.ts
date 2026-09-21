@@ -16,6 +16,8 @@ export interface PackageManifest {
 export type PackagePermission =
     | 'fs:read'
     | 'fs:write'
+    | 'fs:manage'
+    | 'fs:delete'
     | 'net:fetch'
     | 'clipboard:read'
     | 'clipboard:write';
