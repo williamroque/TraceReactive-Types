@@ -17,3 +17,4 @@ export type {
     DependencyValidationResult
 } from './file';
 export type { RendererDefinition } from './registry';
+export type { TraceReactiveAPI } from './api';
