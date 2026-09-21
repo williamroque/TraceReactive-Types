@@ -99,6 +99,11 @@ export abstract class ExecuteNode extends BaseNode {
         const baseInputs = super.getInputs(data, connections);
         return [...baseInputs, { name: 'Event', acceptsType: 'core:event' }];
     }
+
+    getOutputs(data?: Record<string, unknown>, connections?: any[]): OutputDefinition[] {
+        const baseOutputs = super.getOutputs(data, connections);
+        return [...baseOutputs, { name: 'Event', outputType: 'core:event' }];
+    }
 }
 
 export abstract class EventNode extends BaseNode {
