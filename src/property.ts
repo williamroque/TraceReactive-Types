@@ -1,6 +1,7 @@
 export interface PropertyDefinition {
     name: string;
     label?: string;
+    description?: string;
     type: 'string' | 'number' | 'boolean' | 'text' | 'filepath' | 'expression' | 'select' | 'style' | 'button';
     styleType?: 'color' | 'size' | 'font' | 'select';
     category?: 'general' | 'style';
