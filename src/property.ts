@@ -19,7 +19,7 @@ export interface PropertyDefinition {
 export interface InputDefinition {
     name: string;
     label?: string;
-    acceptsType: string;
+    acceptsType: string | string[];
 }
 
 export interface OutputDefinition {
@@ -30,7 +30,7 @@ export interface OutputDefinition {
 
 export interface DynamicInputDefinition {
     baseName: string;
-    acceptsType: string;
+    acceptsType: string | string[];
 }
 
 export interface DynamicOutputDefinition {
