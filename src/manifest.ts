@@ -11,6 +11,7 @@ export interface PackageManifest {
     permissions: PackagePermission[];
     ioTypes?: IOTypeRegistration[];
     themeVariables?: ThemeVariableDefinition[];
+    ui?: string;
 }
 
 export type PackagePermission =
