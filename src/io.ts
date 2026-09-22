@@ -16,11 +16,13 @@ export type CoreIOType =
     | 'core:controlflow'
     | 'core:number'
     | 'core:string'
+    | 'core:path'
     | 'core:array'
     | 'core:number-array'
     | 'core:shape-array'
     | 'core:string-array'
     | 'core:data-array'
+    | 'core:path-array'
     | 'core:event'
     | 'core:boolean'
     | 'core:dataframe';
