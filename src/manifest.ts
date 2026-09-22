@@ -35,6 +35,7 @@ export interface InstalledPackageInfo {
     loaded: boolean;
     nodes?: any[];
     previewers?: any[];
+    interactiveFrontends?: any[];
     exporters?: any[];
     themeSections?: any[];
 }

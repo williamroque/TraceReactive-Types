@@ -3,3 +3,8 @@ export interface RendererDefinition {
     previewerTypeIds: string[];
     packageId: string;
 }
+
+export interface InteractiveFrontendDefinition {
+    typeIds: string[];
+    packageId: string;
+}

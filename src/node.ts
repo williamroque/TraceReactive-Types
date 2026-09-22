@@ -12,7 +12,7 @@ export interface NodeCategory {
 export interface NodeDefinition {
     typeId: string;
     displayName: string;
-    nodeInterface?: 'execute' | 'render' | 'event' | 'normal';
+    nodeInterface?: 'execute' | 'render' | 'event' | 'interactive' | 'normal';
     category: NodeCategory;
     visible: boolean;
     packageId?: string;
@@ -31,7 +31,7 @@ export abstract class BaseNode implements NodeDefinition {
     abstract readonly typeId: string;
     abstract readonly displayName: string;
     abstract readonly category: NodeCategory;
-    readonly nodeInterface: 'execute' | 'render' | 'event' | 'normal' = 'normal';
+    readonly nodeInterface: 'execute' | 'render' | 'event' | 'interactive' | 'normal' = 'normal';
     abstract readonly visible: boolean;
     readonly packageId?: string;
     abstract readonly inputs: InputDefinition[];
@@ -117,4 +117,10 @@ export abstract class EventNode extends BaseNode {
     
     abstract register(nodeId: string, emit: (nodeId: string) => void): void;
     abstract unregister(nodeId: string): void;
+}
+
+export abstract class InteractiveNode extends BaseNode {
+    readonly nodeInterface = 'interactive';
+    abstract readonly category: NodeCategory;
+    readonly visible: boolean = true;
 }
