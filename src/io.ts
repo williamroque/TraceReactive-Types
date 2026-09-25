@@ -25,4 +25,5 @@ export type CoreIOType =
     | 'core:path-array'
     | 'core:event'
     | 'core:boolean'
-    | 'core:dataframe';
+    | 'core:dataframe'
+    | 'core:dataframe-array';
