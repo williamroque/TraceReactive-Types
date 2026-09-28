@@ -55,6 +55,9 @@ export abstract class BaseNode implements NodeDefinition {
             for (let i = 1; i <= maxIndex + 1; i++) {
                 res.push({ name: `${this.dynamicInputs.baseName} ${i}`, acceptsType: this.dynamicInputs.acceptsType || 'any' });
             }
+            if (this.dynamicInputs.preserveStaticInputs) {
+                return [...this.inputs, ...res];
+            }
             return res;
         }
         return this.inputs;

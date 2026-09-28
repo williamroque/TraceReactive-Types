@@ -31,6 +31,7 @@ export interface OutputDefinition {
 export interface DynamicInputDefinition {
     baseName: string;
     acceptsType: string | string[];
+    preserveStaticInputs?: boolean;
 }
 
 export interface DynamicOutputDefinition {
