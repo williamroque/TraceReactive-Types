@@ -2,7 +2,7 @@ export interface PropertyDefinition {
     name: string;
     label?: string;
     description?: string;
-    type: 'string' | 'number' | 'boolean' | 'text' | 'filepath' | 'expression' | 'select' | 'style' | 'button';
+    type: 'string' | 'number' | 'boolean' | 'text' | 'filepath' | 'expression' | 'js-expression' | 'select' | 'style' | 'button';
     styleType?: 'color' | 'size' | 'font' | 'select';
     category?: 'general' | 'style';
     defaultValue: unknown;
