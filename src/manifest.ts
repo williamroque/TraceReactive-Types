@@ -12,6 +12,16 @@ export interface PackageManifest {
     ioTypes?: IOTypeRegistration[];
     themeVariables?: ThemeVariableDefinition[];
     ui?: string;
+    settings?: PackageSettingDefinition[];
+}
+
+export interface PackageSettingDefinition {
+    id: string;
+    label: string;
+    type: 'string' | 'number' | 'boolean' | 'select' | 'password';
+    options?: string[]; // for select type
+    default?: any;
+    description?: string;
 }
 
 export type PackagePermission =
