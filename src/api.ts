@@ -8,7 +8,7 @@ export interface TraceReactiveAPI {
     onEvaluateNode: (callback: (args: { typeId: string, inputs: Record<string, any>, properties: Record<string, any> }) => Promise<any>) => void;
 
     fs: {
-        readFile: (path: string, encoding?: string) => Promise<any>;
+        readFile: (path: string, encoding?: string | null) => Promise<any>;
         writeFile: (path: string, data: any) => Promise<void>;
         listDir: (path: string) => Promise<any[]>;
         stat: (path: string) => Promise<any>;
