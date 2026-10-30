@@ -1,4 +1,4 @@
-export interface TraceReactiveAPI {
+export interface GravityDockAPI {
     registerNodes: (nodes: any[]) => void;
     registerPreviewers: (previewers: any[]) => void;
     registerExporters: (exporters: any[]) => void;

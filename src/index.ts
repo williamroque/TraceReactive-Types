@@ -17,4 +17,4 @@ export type {
     DependencyValidationResult
 } from './file';
 export type { RendererDefinition, InteractiveFrontendDefinition } from './registry';
-export type { TraceReactiveAPI } from './api';
+export type { GravityDockAPI } from './api';
