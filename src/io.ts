@@ -26,4 +26,13 @@ export type CoreIOType =
     | 'core:event'
     | 'core:boolean'
     | 'core:dataframe'
-    | 'core:dataframe-array';
+    | 'core:dataframe-array'
+    | 'core:quantity'
+    | 'core:quantity-array'
+    | 'core:currency'
+    | 'core:currency-array'
+    | 'core:location'
+    | 'core:location-array'
+    | 'core:typed-record'
+    | 'core:typed-record-array'
+    | 'core:query-render';

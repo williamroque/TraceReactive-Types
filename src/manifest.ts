@@ -31,7 +31,9 @@ export type PackagePermission =
     | 'fs:delete'
     | 'net:fetch'
     | 'clipboard:read'
-    | 'clipboard:write';
+    | 'clipboard:write'
+    | 'query'
+    | 'query:read';
 
 export interface IOTypeRegistration {
     id: string;

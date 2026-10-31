@@ -26,4 +26,11 @@ export interface GravityDockAPI {
     net: {
         fetch: (url: string, options?: any) => Promise<any>;
     };
+
+    query: {
+        getTemplates: () => Promise<Array<{ id: string; name: string; alias?: string; schema_json: string }>>;
+        getTemplate: (idOrAlias: string) => Promise<{ id: string; name: string; alias?: string; schema_json: string } | null>;
+        getRecords: (templateIdOrAlias: string, projectId?: string | null) => Promise<any[]>;
+        watchTemplate: (templateIdOrAlias: string, callback: (event: { action: 'created' | 'updated' | 'deleted' | 'changed'; templateId: string; templateAlias?: string; recordId?: string }) => void) => () => void;
+    };
 }
